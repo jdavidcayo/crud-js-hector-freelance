@@ -20,10 +20,12 @@ export const getProject = async ( req, res ) =>{
                 id
             }
         })
+        // 404 No encontrado
         if(!project) res.status( 404 ).json({message: "No se ha encontrado el proyecto."});
         
         res.json( project );
     } catch (error) {
+        //500 Error inteerno del sistema
         return res.status( 500 ).json({ message: error.message });
     }
 }
